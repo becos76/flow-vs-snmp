@@ -1,0 +1,8 @@
+# Only requirements.txt, .streamlit/ and app/ are copied into the image; keep everything
+# else — especially local captures in outputs/ — out of the build context.
+*
+!requirements.txt
+!.streamlit/
+!app/
+**/__pycache__
+**/*.pyc

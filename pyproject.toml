@@ -1,0 +1,18 @@
+# Tool configuration only — the app ships as a Docker image, not a Python package, so
+# there is no [project] table. Dependencies live in requirements*.txt.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 110
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# app.py must put the repo root on sys.path before its `from app...` imports (see there).
+"app/app.py" = ["E402"]

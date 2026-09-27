@@ -1,0 +1,93 @@
+{
+  "version": 4,
+  "query": {
+    "measurement": "/interfaces/counters",
+    "dimensions": [],
+    "metrics": [
+      {
+        "name": "in-bit-rate",
+        "type": "gauge"
+      }
+    ],
+    "range": {
+      "lookback": "PT86400S"
+    },
+    "window": {
+      "size": 300,
+      "fn": {
+        "in-bit-rate": "avg"
+      }
+    },
+    "rollups": {
+      "p95_in-bit-rate": {
+        "metric": "in-bit-rate",
+        "aggregate": "p95"
+      },
+      "max_in-bit-rate": {
+        "metric": "in-bit-rate",
+        "aggregate": "max"
+      },
+      "last_in-bit-rate": {
+        "metric": "in-bit-rate",
+        "aggregate": "last"
+      }
+    },
+    "sort": [
+      {
+        "name": "p95_in-bit-rate",
+        "direction": "desc"
+      },
+      {
+        "name": "max_in-bit-rate",
+        "direction": "desc"
+      },
+      {
+        "name": "last_in-bit-rate",
+        "direction": "desc"
+      }
+    ],
+    "limit": 5,
+    "includeTimeseries": 5,
+    "viz": {
+      "type": "area",
+      "rollup": "",
+      "metric": "in-bit-rate"
+    },
+    "zeroFill": false,
+    "filters": {
+      "connector": "All",
+      "filterGroups": [
+        {
+          "name": "",
+          "named": false,
+          "connector": "All",
+          "not": false,
+          "autoAdded": "",
+          "disabled": false,
+          "filters": [
+            {
+              "disabled": false,
+              "filterField": "i_device_id",
+              "metric": "",
+              "aggregate": "",
+              "operator": "=",
+              "filterValue": "0",
+              "rightFilterField": ""
+            },
+            {
+              "disabled": false,
+              "filterField": "ifindex",
+              "metric": "",
+              "aggregate": "",
+              "operator": "=",
+              "filterValue": "0",
+              "rightFilterField": ""
+            }
+          ],
+          "saved_filters": [],
+          "filterGroups": []
+        }
+      ]
+    }
+  }
+}

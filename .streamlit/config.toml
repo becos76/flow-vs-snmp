@@ -1,0 +1,11 @@
+# Project-level Streamlit config, read from the working directory on `streamlit run`
+# (locally and in the Docker image).
+
+[browser]
+# Streamlit's anonymous usage telemetry is on by default; this app keeps credentials and
+# query data strictly local, so it opts out.
+gatherUsageStats = false
+
+[server]
+# Don't show the "enter your email" prompt or try to open a browser on first run.
+headless = true
